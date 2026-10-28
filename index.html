@@ -1,624 +1,98 @@
-<!DOCTYPE html>
-<html lang="fr" class="h-full">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applications iOS pour Déficients Visuels et Aveugles</title>
-    <!-- Tailwind CSS pour la mise en page responsive -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            black: '#000000',
-                            yellow: '#FFFF00',
-                            blue: '#0055FF',
-                            white: '#FFFFFF',
-                            darkgray: '#1A1A1A',
-                            focus: '#00FF66'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Stylique d'accessibilité renforcée */
-        *:focus-visible {
-            outline: 4px solid #00FF66 !important;
-            outline-offset: 4px !important;
-        }
+Voici une sélection structurée des principales applications sur iOS compatibles avec le français, spécialement conçues ou adaptées pour accompagner les personnes déficientes visuelles (DV) et aveugles.
 
-        /* Thèmes de contraste très élevés */
-        body.theme-yellow-black {
-            background-color: #000000 !important;
-            color: #FFFF00 !important;
-        }
-        body.theme-yellow-black .card-bg {
-            background-color: #121212 !important;
-            border: 2px solid #FFFF00 !important;
-        }
-        body.theme-yellow-black button, 
-        body.theme-yellow-black select,
-        body.theme-yellow-black input {
-            background-color: #000000 !important;
-            color: #FFFF00 !important;
-            border: 2px solid #FFFF00 !important;
-        }
-        body.theme-yellow-black .badge {
-            background-color: #FFFF00 !important;
-            color: #000000 !important;
-            font-weight: 900 !important;
-        }
+---
 
-        body.theme-high-blue {
-            background-color: #001133 !important;
-            color: #FFFFFF !important;
-        }
-        body.theme-high-blue .card-bg {
-            background-color: #002255 !important;
-            border: 2px solid #00DDFF !important;
-        }
-        body.theme-high-blue button, 
-        body.theme-high-blue select,
-        body.theme-high-blue input {
-            background-color: #002255 !important;
-            color: #FFFFFF !important;
-            border: 2px solid #00DDFF !important;
-        }
-        body.theme-high-blue .badge {
-            background-color: #00DDFF !important;
-            color: #001133 !important;
-            font-weight: 900 !important;
-        }
+## Tableau récapitulatif des applications iOS francophones
 
-        body.theme-light {
-            background-color: #FFFFFF !important;
-            color: #000000 !important;
-        }
-        body.theme-light .card-bg {
-            background-color: #F3F4F6 !important;
-            border: 2px solid #000000 !important;
-        }
-        body.theme-light button, 
-        body.theme-light select,
-        body.theme-light input {
-            background-color: #FFFFFF !important;
-            color: #000000 !important;
-            border: 2px solid #000000 !important;
-        }
-        body.theme-light .badge {
-            background-color: #000000 !important;
-            color: #FFFFFF !important;
-        }
+| Thématique | Application | Gratuit / Payant | Public cible (DV / Aveugles) |
+| --- | --- | --- | --- |
+| **Reconnaissance & IA** | **Seeing AI** | Gratuit | DV et Aveugles |
+|  | **Envision AI** | Gratuit (options Pro) | DV et Aveugles |
+|  | **OOrion** | Gratuit | DV et Aveugles |
+|  | **TapTapSee** | Gratuit (achats intégrés) | DV et Aveugles |
+| **Assistance Humaine** | **Be My Eyes** | Gratuit | DV et Aveugles |
+| **GPS & Mobilité** | **Lazarillo** | Gratuit | DV et Aveugles |
+|  | **Soundscape Community** / **Openscape** | Gratuit | DV et Aveugles |
+|  | **GoodMaps Explore** | Gratuit | DV et Aveugles |
+| **Lecture & Documents** | **Voice Dream Reader** | Payant (Abonnement) | DV et Aveugles |
+|  | **Axeptio / Eole** (AVH) | Gratuit | DV et Aveugles |
+| **Agrandissement & Vision** | **Loupe** *(App intégrée iOS)* | Gratuit | DV (Malvoyants) |
 
-        /* Tailles minimales de cibles tactiles */
-        .touch-target {
-            min-height: 56px;
-            min-width: 56px;
-        }
-    </style>
-</head>
-<body class="theme-yellow-black min-h-full font-sans leading-relaxed p-4 md:p-8">
+---
 
-    <!-- Région Live ARIA pour annonces vocales silencieuses/lecteur d'écran -->
-    <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+## Analyse par thématique : Usages principaux et intuitivité
 
-    <!-- Barre d'évitement (Skip Link) pour la navigation au clavier -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:block focus:p-4 focus:bg-yellow-400 focus:text-black focus:font-bold focus:text-xl">
-        Aller directement au contenu principal
-    </a>
+### 1. Reconnaissance d'image, de texte et IA visuelle
 
-    <!-- En-tête principal -->
-    <header role="banner" class="max-w-6xl mx-auto mb-8 border-b-4 border-current pb-6">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">
-                    Applications iOS pour Déficients Visuels & Aveugles
-                </h1>
-                <p class="text-xl font-medium">
-                    Guide interactif d'accessibilité francophone
-                </p>
-            </div>
-            
-            <!-- Contrôles globaux de synthèse et thèmes -->
-            <div class="flex flex-wrap gap-3 items-center" role="region" aria-label="Paramètres d'affichage et audio">
-                <button id="audio-feedback-btn" onclick="toggleAudioFeedback()" class="touch-target px-4 py-3 font-bold text-lg rounded-lg flex items-center gap-2 border-2" aria-pressed="true">
-                    <span aria-hidden="true">🔊</span>
-                    <span>Sons système : <strong id="sound-state-text">ACTIFS</strong></span>
-                </button>
+* **Seeing AI** *(par Microsoft)*
+* **Usages principaux :** Lecture de texte court en temps réel (courrier, étiquettes), numérisation de documents, reconnaissance de codes-barres, détection de billets de banque, description de scènes et détection de visages/couleurs.
+* **Intuitivité :** **Excellente.** Développée en lien étroit avec la communauté d'accessibilité, l'application émet des signaux sonores pour orienter la caméra vers le document ou le code-barres. Parfaitement intégrée avec VoiceOver.
 
-                <label for="theme-select" class="sr-only">Choisir un thème visuel</label>
-                <select id="theme-select" onchange="changeTheme(this.value)" class="touch-target px-4 py-3 font-bold text-lg rounded-lg border-2">
-                    <option value="theme-yellow-black">Thème : Jaune sur Noir (Fort contraste)</option>
-                    <option value="theme-high-blue">Thème : Blanc sur Bleu Nuit</option>
-                    <option value="theme-light">Thème : Noir sur Blanc (Clair)</option>
-                </select>
-            </div>
-        </div>
 
-        <!-- Aide Raccourcis Clavier -->
-        <div class="mt-6 p-4 border-2 border-current rounded-lg card-bg">
-            <h2 class="text-xl font-bold mb-2 flex items-center gap-2">
-                <span aria-hidden="true">⌨️</span> Raccourcis Clavier Rapides
-            </h2>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-base font-semibold">
-                <li><kbd class="px-2 py-1 border border-current rounded">Alt + S</kbd> : Rechercher</li>
-                <li><kbd class="px-2 py-1 border border-current rounded">Alt + F</kbd> : Filtrer par catégorie</li>
-                <li><kbd class="px-2 py-1 border border-current rounded">Alt + R</kbd> : Réinitialiser filtres</li>
-                <li><kbd class="px-2 py-1 border border-current rounded">Alt + T</kbd> : Changer de thème</li>
-            </ul>
-        </div>
-    </header>
+* **OOrion** *(Application française)*
+* **Usages principaux :** Recherche ponctuelle d'objets du quotidien (clés, télécommande, bouteille) ou de textes spécifiques (panneaux, médicaments) à l'aide de l'appareil photo.
+* **Intuitivité :** **Très élevée.** L'application émet des bips sonores dont le rythme s'accélère au fur et meure que la caméra se rapproche de l'objet ou du texte recherché. Idéal pour retrouver un objet égaré dans une pièce sans dépendre d'un tiers.
 
-    <!-- Zone principale -->
-    <main id="main-content" class="max-w-6xl mx-auto" role="main">
 
-        <!-- Barre de recherche et filtres d'accessibilité -->
-        <section aria-labelledby="filter-heading" class="mb-8 p-6 rounded-xl border-4 border-current card-bg">
-            <h2 id="filter-heading" class="text-2xl font-bold mb-4">
-                Filtrer et Rechercher une Application
-            </h2>
+* **Envision AI** & **TapTapSee**
+* **Usages principaux :** Description détaillée de photos, lecture de manuscrits (Envision) et identification d'objets sur prise de vue rapide (TapTapSee).
+* **Intuitivité :** **Bonne.** TapTapSee s'utilise d'un simple double-tap (prend la photo et énonce la description). Envision propose une interface fluide mais requiert la gestion d'un compte utilisateur.
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Recherche textuelle -->
-                <div>
-                    <label for="search-input" class="block text-xl font-bold mb-2">Recherche par mot-clé</label>
-                    <input type="text" id="search-input" accesskey="s" placeholder="Ex: Seeing AI, GPS, texte..." 
-                           oninput="filterApps()" 
-                           class="w-full touch-target px-4 text-xl font-bold rounded-lg"
-                           aria-describedby="search-desc">
-                    <span id="search-desc" class="sr-only">Tapez un nom d'application ou une fonctionnalité.</span>
-                </div>
 
-                <!-- Filtre par Thématique -->
-                <div>
-                    <label for="category-filter" class="block text-xl font-bold mb-2">Thématique</label>
-                    <select id="category-filter" accesskey="f" onchange="filterApps()" class="w-full touch-target px-4 text-xl font-bold rounded-lg">
-                        <option value="all">Toutes les thématiques</option>
-                        <option value="IA">Reconnaissance & IA</option>
-                        <option value="Assistance">Assistance Humaine</option>
-                        <option value="GPS">GPS & Mobilité</option>
-                        <option value="Lecture">Lecture & Culture</option>
-                        <option value="Système">Outils Système / Natif</option>
-                    </select>
-                </div>
 
-                <!-- Filtre par Public Cible -->
-                <div>
-                    <label for="target-filter" class="block text-xl font-bold mb-2">Public Cible</label>
-                    <select id="target-filter" onchange="filterApps()" class="w-full touch-target px-4 text-xl font-bold rounded-lg">
-                        <option value="all">Tous les publics (DV & Aveugles)</option>
-                        <option value="DV">Malvoyants (DV)</option>
-                        <option value="Aveugles">Non-voyants (Aveugles)</option>
-                    </select>
-                </div>
-            </div>
+---
 
-            <div class="mt-6 flex flex-wrap gap-4 items-center justify-between">
-                <button onclick="resetFilters()" accesskey="r" class="touch-target px-6 py-3 font-extrabold text-xl rounded-lg border-2 uppercase tracking-wide">
-                    🔄 Réinitialiser tous les filtres
-                </button>
-                <div id="results-count" class="text-2xl font-extrabold" aria-live="polite">
-                    10 applications affichées
-                </div>
-            </div>
-        </section>
+### 2. Assistance humaine à distance
 
-        <!-- Liste des applications -->
-        <section aria-label="Liste des applications accessibles">
-            <div id="apps-container" class="grid grid-cols-1 gap-8">
-                <!-- Les cartes d'applications seront générées dynamiquement ici par JS -->
-            </div>
-        </section>
-    </main>
+* **Be My Eyes**
+* **Usages principaux :** Mise en relation vidéo instantanée avec des bénévoles voyants francophones pour résoudre des blocages du quotidien (lire une date de péremption, régler un thermostat, trouver un vêtement). Intègre désormais **Be My AI**, un assistant IA capable de décrire l'image avant même de faire appel à un bénévole.
+* **Intuitivité :** **Maximale.** L'interface est très épurée : un gros bouton central pour lancer l'appel. L'interaction est purement vocale une fois le correspondant connecté.
 
-    <!-- Pied de page -->
-    <footer role="contentinfo" class="max-w-6xl mx-auto mt-16 pt-8 border-t-4 border-current text-center">
-        <p class="text-xl font-bold mb-4">
-            Guide d'accessibilité numérique pour la communauté déficiente visuelle francophone.
-        </p>
-        <p class="text-lg">
-            Compatible avec VoiceOver, NVDA, JAWS et tous les dispositifs braille.
-        </p>
-    </footer>
 
-    <!-- Script JavaScript interactif et accessible -->
-    <script>
-        // Données complètes des applications issues de l'étude
-        const appsData = [
-            {
-                id: 'seeing-ai',
-                name: 'Seeing AI',
-                developer: 'Microsoft',
-                category: 'IA',
-                categoryLabel: 'Reconnaissance & IA',
-                price: 'Gratuit',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Lecture de texte court en temps réel, numérisation de documents, reconnaissance de codes-barres, détection de billets de banque, description de scènes et détection de visages.',
-                intuitivityScore: '5/5 (Excellente)',
-                intuitivityDetails: 'Très grande simplicité. Émet des signaux sonores pour orienter la caméra vers les documents ou les codes-barres. Intégration VoiceOver parfaite.',
-                usage: 'Essentiel au quotidien pour lire le courrier, identifier des produits, reconnaître l\'argent et analyser son environnement immédiatement.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/seeing-ai/id1199568908'
-            },
-            {
-                id: 'oorion',
-                name: 'OOrion',
-                developer: 'Application Française',
-                category: 'IA',
-                categoryLabel: 'Reconnaissance & IA',
-                price: 'Gratuit',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Recherche et localisation d\'objets du quotidien (clés, télécommande, bouteille) ou de textes spécifiques (panneaux, médicaments) à l\'aide de l\'appareil photo.',
-                intuitivityScore: '4.8/5 (Très élevée)',
-                intuitivityDetails: 'Bips sonores dont le rythme s\'accélère au fur et à mesure que la caméra se rapproche de l\'objet ou du texte recherché.',
-                usage: 'Retrouver un objet perdu dans une pièce ou repérer un texte précis sans dépendre d\'un tiers.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/oorion/id1588235282'
-            },
-            {
-                id: 'be-my-eyes',
-                name: 'Be My Eyes',
-                developer: 'Be My Eyes',
-                category: 'Assistance',
-                categoryLabel: 'Assistance Humaine & IA',
-                price: 'Gratuit',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Mise en relation vidéo instantanée avec des bénévoles voyants francophones ou description automatisée instantanée par IA (Be My AI).',
-                intuitivityScore: '5/5 (Maximale)',
-                intuitivityDetails: 'Un seul gros bouton central pour déclencher l\'appel ou la prise de photo IA. Communication vocale directe.',
-                usage: 'Résolution de blocages du quotidien : dates de péremption, réglages d\'appareils ménagers, choix d\'habits, lecture de tableaux complexes.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/be-my-eyes/id905490302'
-            },
-            {
-                id: 'lazarillo',
-                name: 'Lazarillo GPS',
-                developer: 'Lazarillo Inc.',
-                category: 'GPS',
-                categoryLabel: 'GPS & Mobilité',
-                price: 'Gratuit',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Navigation piétonne et transports. Annonce vocalement les intersections, points d\'intérêt environnants (commerces, arrêts) et adresses.',
-                intuitivityScore: '4.5/5 (Très bonne)',
-                intuitivityDetails: 'Fonctionne très bien en arrière-plan avec annonces vocales automatiques lors de la marche. Menus clairs par catégories.',
-                usage: 'Guidage dans la rue, exploration de nouveaux quartiers et autonomie dans les déplacements urbains.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/lazarillo-gps-accessible/id1150228882'
-            },
-            {
-                id: 'soundscape',
-                name: 'Soundscape Community / Openscape',
-                developer: 'Open Source / Communauté',
-                category: 'GPS',
-                categoryLabel: 'GPS & Mobilité Spatialisée',
-                price: 'Gratuit',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Repérage spatial en audio 3D via casque ou écouteurs. Les annonces sonores sont virtualisées dans l\'espace réel (ex. commerce à droite résonne à droite).',
-                intuitivityScore: '4/5 (Bonne - nécessite un temps d\'adaptation)',
-                intuitivityDetails: 'Nécessite de se familiariser avec le rendu 3D audio, mais offre une représentation mentale exceptionnelle de l\'environnement.',
-                usage: 'Procurer un confort d\'orientation enrichi et une meilleure conscience spatiale en déplacement.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/openscape/id1604249179'
-            },
-            {
-                id: 'voice-dream',
-                name: 'Voice Dream Reader',
-                developer: 'Voice Dream LLC',
-                category: 'Lecture',
-                categoryLabel: 'Lecture & Documents',
-                price: 'Payant (Abonnement)',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Lecture haute voix personnalisable de livres numériques, PDF, articles Web ou documents texte avec voix de synthèse premium.',
-                intuitivityScore: '4.7/5 (Remarquable)',
-                intuitivityDetails: 'Réglages extrêmement fins de la vitesse, des voix, du surlignage, des polices adaptées aux malvoyants et des contrastes.',
-                usage: 'Études, lecture professionnelle ou loisir de documents longs avec une grande qualité d\'écoute.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/voice-dream-reader/id496212521'
-            },
-            {
-                id: 'eole-avh',
-                name: 'Éole (Médiathèque Valentin Haüy)',
-                developer: 'Association Valentin Haüy',
-                category: 'Lecture',
-                categoryLabel: 'Lecture & Culture',
-                price: 'Gratuit',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Téléchargement et écoute de dizaines de milliers de livres audio au format DAISY et de livres en braille numérique.',
-                intuitivityScore: '4.6/5 (Très bonne)',
-                intuitivityDetails: 'Lecteur audio très épuré et adapté au public déficient visuel. Gestion fluide des marque-pages.',
-                usage: 'Accès direct et gratuit à la culture, aux romans et ouvrages documentaires adaptés.',
-                appStoreUrl: 'https://eole.avh.asso.fr'
-            },
-            {
-                id: 'loupe-ios',
-                name: 'Loupe (Magnifier iOS)',
-                developer: 'Apple (Natif iOS)',
-                category: 'Système',
-                categoryLabel: 'Outils Système & Magnification',
-                price: 'Gratuit (Natif)',
-                target: 'Malvoyants (DV)',
-                targetCode: 'DV',
-                summary: 'Agrandissement numérique avec filtres de contraste, inversion de couleurs, lampe torche, et détection de portes/personnes avec LiDAR.',
-                intuitivityScore: '5/5 (Native & Immediate)',
-                intuitivityDetails: 'Accessible directement via le triple clic latéral ou le Centre de Contrôle. Boutons géants.',
-                usage: 'Lire des menus, des étiquettes d\'emballage, examiner des détails fins ou s\'orienter vers une porte.',
-                appStoreUrl: 'https://support.apple.com/fr-fr/HT204390'
-            },
-            {
-                id: 'envision-ai',
-                name: 'Envision AI',
-                developer: 'Envision Technologies',
-                category: 'IA',
-                categoryLabel: 'Reconnaissance & IA',
-                price: 'Gratuit (Option Pro)',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Description de scènes complexes, lecture de manuscrits, numérisation de documents multipages et détection de couleurs.',
-                intuitivityScore: '4.2/5 (Bonne)',
-                intuitivityDetails: 'Interface fluide et moderne. Entièrement accessible avec VoiceOver.',
-                usage: 'Lecture de lettres manuscrites, numérisation de livres complets et exploration visuelle.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/envision-ai/id1333336324'
-            },
-            {
-                id: 'taptapsee',
-                name: 'TapTapSee',
-                developer: 'CloudSight Inc.',
-                category: 'IA',
-                categoryLabel: 'Reconnaissance & IA',
-                price: 'Gratuit (Achats intégrés)',
-                target: 'DV et Aveugles',
-                targetCode: 'both',
-                summary: 'Identification rapide d\'objets 3D sous n\'importe quel angle à partir d\'une simple photo.',
-                intuitivityScore: '4.5/5 (Très simple)',
-                intuitivityDetails: 'Double-taper sur l\'écran pour prendre la photo, l\'analyse est vocalissée automatiquement quelques secondes plus tard.',
-                usage: 'Identifier un objet inconnu, un vêtement ou un emballage sans réglage complexe.',
-                appStoreUrl: 'https://apps.apple.com/fr/app/taptapsee/id567300301'
-            }
-        ];
 
-        // État de l'application
-        let audioFeedbackEnabled = true;
+---
 
-        // Web Audio API pour bips d'aide auditive
-        let audioCtx = null;
+### 3. Navigation GPS et guidage spatial
 
-        function playBeep(freq = 440, duration = 0.08, type = 'sine') {
-            if (!audioFeedbackEnabled) return;
-            try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = type;
-                osc.frequency.value = freq;
-                gain.gain.value = 0.15;
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
-            } catch (e) {
-                // Audio non supporté ou bloqué
-            }
-        }
+* **Lazarillo GPS**
+* **Usages principaux :** Navigation piétonne et transports. Annonce vocalement les intersections, les points d'intérêt environnants (commerces, arrêts de bus) et les adresses.
+* **Intuitivité :** **Très bonne.** L'application fonctionne en arrière-plan et énonce automatiquement les points de repère lors de la marche. Les menus sont classés par catégories claires (Alimentation, Transports, Santé).
 
-        function toggleAudioFeedback() {
-            audioFeedbackEnabled = !audioFeedbackEnabled;
-            const btn = document.getElementById('audio-feedback-btn');
-            const text = document.getElementById('sound-state-text');
-            btn.setAttribute('aria-pressed', audioFeedbackEnabled);
-            if (audioFeedbackEnabled) {
-                text.textContent = 'ACTIFS';
-                playBeep(880, 0.1);
-                announceSR('Retours sonores activés');
-            } else {
-                text.textContent = 'DÉSACTIVÉS';
-                announceSR('Retours sonores désactivés');
-            }
-        }
 
-        // Annonce vocale pour lecteur d'écran
-        function announceSR(text) {
-            const el = document.getElementById('sr-announcer');
-            el.textContent = text;
-        }
+* **Soundscape Community / Openscape** *(Basés sur le projet initial Microsoft Soundscape)*
+* **Usages principaux :** Repérage spatial en audio 3D (avec casque ou écouteurs). Les sons et annonces sont virtualisés dans l'espace (ex. la boulangerie sur la droite résonne dans l'oreille droite).
+* **Intuitivité :** **Bonne à moyenne.** Nécessite une petite phase d'apprentissage pour appréhender la spatialisation sonore 3D, mais procure un confort précieux d'orientation une fois prise en main.
 
-        // Synthèse Vocale (TTS)
-        function speakText(text) {
-            playBeep(600, 0.05);
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // Arrette les lectures en cours
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'fr-FR';
-                utterance.rate = 1.0;
-                window.speechSynthesis.speak(utterance);
-                announceSR("Lecture vocale : " + text);
-            } else {
-                alert("La synthèse vocale n'est pas supportée par ce navigateur.");
-            }
-        }
 
-        function stopSpeech() {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-            }
-        }
 
-        // Changement de thème visuel
-        function changeTheme(themeName) {
-            playBeep(520, 0.08);
-            document.body.className = `${themeName} min-h-full font-sans leading-relaxed p-4 md:p-8`;
-            announceSR('Thème d\'affichage modifié');
-        }
+---
 
-        // Affichage des cartes d'applications
-        function renderApps(apps) {
-            const container = document.getElementById('apps-container');
-            const countEl = document.getElementById('results-count');
-            container.innerHTML = '';
+### 4. Lecture audio et accès à la culture
 
-            countEl.textContent = `${apps.length} application${apps.length > 1 ? 's' : ''} affichée${apps.length > 1 ? 's' : ''}`;
+* **Voice Dream Reader**
+* **Usages principaux :** Lecture haute voix de livres numériques, PDF, articles Web ou documents texte avec paramétrage fin des voix de synthèse.
+* **Intuitivité :** **Excellente pour les utilisateurs expérimentés.** Très riche en fonctionnalités (réglage de vitesse, surlignage, signets), elle est entièrement compatible VoiceOver. L'ergonomie pour malvoyants permet d'agrandir les polices et de modifier les contrastes de couleurs.
 
-            if (apps.length === 0) {
-                container.innerHTML = `
-                    <div class="p-8 text-center border-4 border-current rounded-xl card-bg">
-                        <p class="text-2xl font-bold mb-4">Aucune application ne correspond à vos critères de recherche.</p>
-                        <button onclick="resetFilters()" class="touch-target px-6 py-3 font-bold text-xl rounded-lg border-2">
-                            Réinitialiser la recherche
-                        </button>
-                    </div>
-                `;
-                return;
-            }
 
-            apps.forEach((app, index) => {
-                const card = document.createElement('article');
-                card.className = 'p-6 md:p-8 rounded-2xl border-4 border-current card-bg shadow-lg flex flex-col justify-between';
-                card.setAttribute('aria-labelledby', `app-title-${app.id}`);
+* **Éole (Médiathèque Valentin Haüy)**
+* **Usages principaux :** Téléchargement et écoute de livres audio au format DAISY et de livres en braille numérique destinés aux personnes handicapées visuelles.
+* **Intuitivité :** **Très bonne.** Conçue spécifiquement pour le public DV, avec un lecteur simplifié, une gestion fluide des marque-pages et un catalogue directement accessible en français.
 
-                card.innerHTML = `
-                    <div>
-                        <!-- En-tête de la fiche -->
-                        <div class="flex flex-wrap items-start justify-between gap-4 border-b-2 border-current pb-4 mb-4">
-                            <div>
-                                <span class="badge inline-block px-3 py-1 text-base font-extrabold rounded-md uppercase tracking-wide mb-2">
-                                    ${app.categoryLabel}
-                                </span>
-                                <h3 id="app-title-${app.id}" class="text-3xl md:text-4xl font-extrabold">
-                                    ${app.name}
-                                </h3>
-                                <p class="text-lg font-semibold opacity-90">${app.developer}</p>
-                            </div>
-                            <div class="text-right flex flex-col items-end gap-2">
-                                <span class="inline-block px-4 py-2 border-2 border-current rounded-lg font-black text-xl">
-                                    ${app.price}
-                                </span>
-                                <span class="font-bold text-lg">
-                                    🎯 Public : ${app.target}
-                                </span>
-                            </div>
-                        </div>
 
-                        <!-- Description & Usages -->
-                        <div class="space-y-4 text-xl">
-                            <p>
-                                <strong>Description :</strong> ${app.summary}
-                            </p>
-                            <p>
-                                <strong>Usage principal :</strong> ${app.usage}
-                            </p>
-                            <div class="p-4 border-2 border-current rounded-lg my-4">
-                                <p class="font-extrabold text-2xl text-yellow-300">
-                                    Intuitivité : ${app.intuitivityScore}
-                                </p>
-                                <p class="mt-1 text-lg">
-                                    ${app.intuitivityDetails}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Actions interactives et vocales -->
-                    <div class="mt-8 pt-4 border-t-2 border-current flex flex-wrap gap-4 items-center justify-between">
-                        <button onclick="speakText('${app.name}. Categorie : ${app.categoryLabel}. Prix : ${app.price}. Public : ${app.target}. Description : ${app.summary}. Intuitivité : ${app.intuitivityScore}. Usage : ${app.usage}')"
-                                onmouseenter="playBeep(700, 0.03)"
-                                class="touch-target px-6 py-4 font-black text-xl rounded-xl border-2 flex items-center gap-3">
-                            <span aria-hidden="true">🔊</span>
-                            <span>Écouter cette fiche</span>
-                        </button>
+---
 
-                        <a href="${app.appStoreUrl}" target="_blank" rel="noopener noreferrer"
-                           onmouseenter="playBeep(800, 0.03)"
-                           class="touch-target px-6 py-4 font-black text-xl rounded-xl border-2 flex items-center gap-2 text-center"
-                           aria-label="Ouvrir la fiche d'installation de ${app.name} dans l'App Store (s'ouvre dans une nouvelle fenêtre)">
-                            <span>Télécharger sur l'App Store</span>
-                            <span aria-hidden="true">↗</span>
-                        </a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
+### 5. Outils système & Agrandissement (Natif iOS)
 
-        // Logique de filtrage
-        function filterApps() {
-            playBeep(450, 0.04);
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            const category = document.getElementById('category-filter').value;
-            const target = document.getElementById('target-filter').value;
+* **Loupe (Magnifier iOS)** & **VoiceOver**
+* **Usages principaux :** Agrandissement numérique via l'appareil photo (filtres de contraste, inversion de couleurs, torche) pour les malvoyants. Intègre la détection de portes et la reconnaissance de personnes pour les modèles d'iPhone récents avec LiDAR.
+* **Intuitivité :** **Native.** Accessible en 3 clics sur le bouton latéral ou via le centre de contrôle. C'est l'outil de base le plus fiable pour les personnes ayant du reste visuel.
 
-            const filtered = appsData.filter(app => {
-                const matchesQuery = app.name.toLowerCase().includes(query) ||
-                                     app.summary.toLowerCase().includes(query) ||
-                                     app.usage.toLowerCase().includes(query) ||
-                                     app.developer.toLowerCase().includes(query);
 
-                const matchesCategory = (category === 'all') || (app.category === category);
-                
-                let matchesTarget = true;
-                if (target === 'DV') {
-                    matchesTarget = app.targetCode === 'DV' || app.targetCode === 'both';
-                } else if (target === 'Aveugles') {
-                    matchesTarget = app.targetCode === 'both';
-                }
 
-                return matchesQuery && matchesCategory && matchesTarget;
-            });
+---
 
-            renderApps(filtered);
-            announceSR(`${filtered.length} résultats trouvés`);
-        }
+### Synthèse sur l'intuitivité globale
 
-        function resetFilters() {
-            playBeep(300, 0.1);
-            document.getElementById('search-input').value = '';
-            document.getElementById('category-filter').value = 'all';
-            document.getElementById('target-filter').value = 'all';
-            renderApps(appsData);
-            announceSR('Filtres réinitialisés. Toutes les applications sont affichées.');
-        }
-
-        // Raccourcis clavier globaux
-        window.addEventListener('keydown', (e) => {
-            if (e.altKey) {
-                switch (e.key.toLowerCase()) {
-                    case 's':
-                        e.preventDefault();
-                        document.getElementById('search-input').focus();
-                        announceSR('Saisie de recherche focalisée');
-                        break;
-                    case 'f':
-                        e.preventDefault();
-                        document.getElementById('category-filter').focus();
-                        announceSR('Filtre de catégorie focalisé');
-                        break;
-                    case 'r':
-                        e.preventDefault();
-                        resetFilters();
-                        break;
-                    case 't':
-                        e.preventDefault();
-                        const themeSelect = document.getElementById('theme-select');
-                        const nextIdx = (themeSelect.selectedIndex + 1) % themeSelect.options.length;
-                        themeSelect.selectedIndex = nextIdx;
-                        changeTheme(themeSelect.value);
-                        break;
-                }
-            }
-        });
-
-        // Initialisation
-        window.addEventListener('DOMContentLoaded', () => {
-            renderApps(appsData);
-        });
-    </script>
-</body>
-</html>
+* **Pour une personne non-voyante (utilisation avec VoiceOver) :** Les applications telles que **Be My Eyes**, **Seeing AI** et **Lazarillo** offrent la meilleure expérience grâce à des retours vocaux optimisés et des zones de clics larges et bien étiquetées.
+* **Pour une personne malvoyante (utilisation avec résidu visuel) :** L'application **Loupe** native d'iOS et **Voice Dream Reader** se distinguent par la personnalisation des contrastes, des polices et des tailles de texte.
